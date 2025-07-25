@@ -62,3 +62,7 @@ function sbtnPrepare() {
 function submit() {
     location.href = value.substring(0,7) + xyz[23] + xyz[25] + xyz[13] + xyz[10] + xyz[21] + xyz[8] + xyz[4] + xyz[25] + xyz[12] + xyz[23] + xyz[5] + xyz[7] + xyz[18] + xyz[17] + xyz[11] + xyz[12] + xyz[7] + value.charAt(11) + xyz[19] + xyz[13] + xyz[25] + xyz[17] + xyz[15] + value.charAt(19) + xyz[23] + xyz[11] + xyz[13];
 }
+
+function linktoInstagram() {
+    window.open("https://www.instagram.com/campervancushions.uk/", "_blank");
+}
