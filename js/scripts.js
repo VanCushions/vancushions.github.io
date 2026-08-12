@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 function sbtnPrepare() {
     var intId2 = setInterval(() => {
-        document.getElementById("subNum").textContent = num[10] + num[7] + num[17] + num[18] + num[9] + " " + num[15] + num[21] + num[16] + num[8] + num[16] + num[12];
+        document.getElementById("subNum").textContent = num[10] + num[7] + num[17] + num[16] + num[9] + " " + num[21] + num[10] + num[0] + num[6] + num[14] + num[24];
         document.getElementById("submitButton").textContent = "E" + xyz[13] + xyz[25] + xyz[17] + xyz[15] + " " + xyz[5] + xyz[7];
         document.getElementById("subMsg").textContent = xyz[23] + xyz[25] + xyz[13] + xyz[10] + xyz[21] + xyz[8] + xyz[4] + xyz[25] + xyz[12] + xyz[23] + xyz[5] + xyz[7] + xyz[18] + xyz[17] + xyz[11] + xyz[12] + xyz[7] + value.charAt(11) + xyz[19] + xyz[13] + xyz[25] + xyz[17] + xyz[15] + value.charAt(19) + xyz[23] + xyz[11] + xyz[13];
         document.getElementById("submitButton").style.visibility = "visible";
