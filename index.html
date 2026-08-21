@@ -38,6 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul id="menu-ul" class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#service">Our service</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#estimator">Price calculator</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy</a></li>
                         <li class="nav-item" onclick="sbtnPrepare()"><a id="abc" class="nav-link me-lg-3" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#feedbackModal"></a></li>
                     </ul>
@@ -52,7 +53,7 @@
                         <!-- Mashead text and app badges-->
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="display-1 lh-1 mb-3">Campervan Cushions</h1>
-                            <p class="lead fw-normal text-muted mb-5">We make beautiful custom upholstery for campervans. We're a small, friendly business based in the Cotswolds, UK. Please get in touch for a no-obligation quote. We'd love to hear from you.</p>
+                            <p class="lead fw-normal text-muted mb-5">We make beautiful custom upholstery for campervans. We're a small, friendly business based in the Cotswolds, UK. Try our price calculator below, and get in touch for a tailored, no-obligation quote. We'd love to hear from you.</p>
                             <p class="lead fw-normal text-muted mb-5 mb-lg-0">
                                 Whether you need whole cushions or just covers, our made to measure upholstery can help you refresh the interior of your treasured campervan, or bring that perfect finishing touch to your conversion project.
                                 We can make bespoke bed/seat arrangements for boats, caravans, motorhomes or other small spaces too. 
@@ -75,6 +76,7 @@
         </section>
 
         <!-- Basic features section-->
+
         <section id="service" class="bg-light">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
@@ -385,7 +387,45 @@
         <section class="bg-gradient-primary-to-secondary" id="download">
             <div class="container px-5">
                 <h2 class="text-center text-white mb-4">Based in The Cotswolds</h2>
-                <h5 class="text-center text-white mb-4">We like to provide a local service but can discuss shipping further afield.</h5>
+                <h5 class="text-center text-white mb-4">We love supplying local customers but can also ship further afield.</h5>
+            </div>
+        </section>
+
+        <!-- Estimator section-->
+
+        <section id="estimator" class="bg-light">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+                    <div class="col-12 col-lg-5">
+                        <h2 class="display-4 lh-1 mb-4">Try our calculator</h2>
+                        <p class="lead fw-normal text-muted mb-5 mb-lg-0">
+                            Enter your cushion dimensions in millimetres and click Estimate to get a rough idea of the cost for a complete cushion set in a plain coloured mid-range fabric, with 100mm firm foam wrapped in dacron & stockinette, and a rear zipper.
+                            It is only a guide, so please contact us for a personalised quote, or for more foam and fabric options.
+                            Use the + button to add more rows for additional cushions. You can clear the fields with the Clear
+                            button.
+                        </p>
+                    </div>
+                    <div class="col-sm-8 col-md-6">
+                        <table id="table0">
+                            <tbody>
+                                <tr>
+                                    <td><input type="number" placeholder="Enter length (mm)"></input></td>
+                                    <td><input type="number" placeholder="Enter width (mm)"></input></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right;"><button class="plusbutton" id="addButton"
+                                            onclick="addRow()">+</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <button class="cbutton" id="estimateButton" onclick="estimate()">Estimate</button>
+                        <button class="inversebutton" id="clearButton" onclick="clearTable()">Clear</button>
+                        <p> </p>
+                        <p id="grandTotal"></p>
+                        <p id="debug"></p>
+                    </div>
+                </div>
             </div>
         </section>
 

@@ -66,3 +66,112 @@ function submit() {
 function linktoInstagram() {
     window.open("https://www.instagram.com/campervancushions.uk/", "_blank");
 }
+
+function addRow() {
+  if(document.getElementById("table0").rows.length <11) {
+    let newRow = document.getElementById("table0").insertRow(document.getElementById("table0").rows.length-1).innerHTML = '<tr><td><input type="number" placeholder="Enter length (mm)"></input></td><td><input type="number" placeholder="Enter width (mm)"></input></td></tr>';
+  }
+}
+
+function estimate() {
+    let ct = 100;
+    let dm = 0.000056;
+    let rw = 1400;
+    let fla = 1.3;
+    let fppm = 15;
+    let zpu = 5;
+
+    let tl = 0;
+    let tw = 0;
+    let ta = 0;
+    let tfpev = 0;
+    let tfpiv = 0;
+    let tfp = 0;
+    let tpa = 0;
+    let tfza = 0;
+    let tsa = 0;
+    let tta = 0;
+    let tar = 0;
+    let tzl = 0;
+    let zl = 0;
+    let ga = 0;
+    let tmp = 0;
+    let l = 0;
+
+    let cushionTable = document.getElementById("table0");
+
+    for (loop = 0; loop < cushionTable.rows.length - 1; loop++) {
+        tl = Math.abs(Number(cushionTable.rows[loop].cells[0].firstChild.value));
+        tw = Math.abs(Number(cushionTable.rows[loop].cells[1].firstChild.value));
+        ta = tl * tw;
+        tfpev = ta * dm;
+        tfpiv = tfpev * 1.2;
+        tfp += tfpiv;
+
+        ga += (tl * tw * 2) + (tw * ct * 2) + (tl * ct * 2);
+
+        tpa = (tl + 25) * (tw + 25) * 2;
+        tfza = (tl + 25) * (ct + 25) * 3;
+        tsa = (tw + 25) * (ct + 25) * 2;
+        tta = tpa + tfza + tsa;
+        tar += tta;
+
+        tzl = (tl + 150) / 1000;
+        zl += tzl;
+
+        if(tl > 1800) {
+            l += 105;
+        } else if(tl > 1300) {
+            l += 95;
+        } else if(tl > 800) {
+            l += 85;
+        } else {
+            l += 75;
+        }
+    }
+
+    if(tfp === 0) {
+        return;
+    }
+
+    let fl = tar / rw;
+    let fm = fl / 1000;
+    let afm = fm * fla;
+    let fiv = fppm * afm * 1.2;
+    let fdc = fiv + 13;
+
+    let zm = Math.ceil(zl / zpu);
+    let zp = zm * 8;
+
+    let dppm = 1.6;
+    let dp = afm * dppm;
+
+    let saf = 1.2;
+    let sl = zl * saf;
+    let sppm = 0.75;
+    let sp = sl * sppm;
+
+    let gppm = 1;
+    let gp = ga / 1000000 * gppm;
+
+    let tp = 7;
+
+    tmp += tfp;
+    tmp += fdc;
+    tmp += zp;
+    tmp += dp;
+    tmp += sp;
+    tmp += gp;
+    tmp += tp;
+
+    document.getElementById("grandTotal").innerHTML = "The estimated total is: £" + (tmp + l).toFixed(0);
+    document.getElementById("debug").innerHTML = "Don't forget, this is just a guide price, so please contact us for an accurate quote based on foam, fabric, shipping, and other options.";
+}
+
+function clearTable() {
+    let cushionTable = document.getElementById("table0");
+    cushionTable.innerHTML = '<tbody><tr><td><input type="number" placeholder="Enter length (mm)"></input></td><td><input type="number" placeholder="Enter width (mm)"></input></td></tr><tr><td colspan="2" style="text-align: right;"><button class="plusbutton" id="addButton" onclick="addRow()">+</button></td></tr></tbody>';
+
+    grandTotal.innerHTML = "";
+    debug.innerHTML = "";
+}
